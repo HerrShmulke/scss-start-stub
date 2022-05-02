@@ -1,0 +1,20 @@
+@use 'sass:map';
+
+// Пример использования: map-get($--spacers, 3) - $--spacer * 3 = 12px
+
+// Шаг
+$--spacer: 4px;
+
+// Максимальное количество шагов
+$--spacers-steps: 16;
+
+$--spacers: ();
+
+@for $i from 0 through $--spacers-steps {
+  $--spacers: map.merge(
+    $--spacers,
+    (
+      $i: $--spacer * $i,
+    )
+  );
+}

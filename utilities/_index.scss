@@ -1,0 +1,19 @@
+@use 'sass:map';
+
+@each $utilityKey, $utility in $--utilities {
+  $values: map-get($utility, 'values');
+
+  @each $index, $value in $values {
+    .#{map-get($utility, 'class')-$index} {
+      #{map-get($utility, 'property')}: $value;
+    }
+
+    @each $name, $breakpoints in $--screens {
+      .#{map-get($utility, 'class')-$index} {
+        @include media($name) {
+          #{map-get($utility, 'property')}: $value;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+// В mobile-first располагать от меньшего к большему
+// В desktop-first располагать большего к меньшему
+$--screens: (
+  'tablet': 1130px,
+  'mobile': 768px,
+);
